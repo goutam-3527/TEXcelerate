@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MineSense | Smart Material Handling</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                <span>M</span>
+            </div>
+
+            <div>
+                <h2>MineSense</h2>
+                <p>Smart Material Handling</p>
+            </div>
+
+        </div>
+
+        <div class="nav-label">OPERATIONS</div>
+
+        <nav>
+
+            <button class="nav-item active"
+                    onclick="showPage('dashboard', this)">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </button>
+
+            <button class="nav-item"
+                    onclick="showPage('equipment', this)">
+                <span class="nav-icon">⚙</span>
+                <span>Equipment</span>
+            </button>
+
+            <button class="nav-item"
+                    onclick="showPage('trucks', this)">
+                <span class="nav-icon">▣</span>
+                <span>Truck Management</span>
+                <span class="nav-count">8</span>
+            </button>
+
+            <button class="nav-item"
+                    onclick="showPage('alerts', this)">
+                <span class="nav-icon">⚠</span>
+                <span>AI Alerts</span>
+                <span class="nav-count alert-count">4</span>
+            </button>
+
+            <button class="nav-item"
+                    onclick="showPage('analytics', this)">
+                <span class="nav-icon">◈</span>
+                <span>Analytics</span>
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="system-status">
+
+                <span class="online-dot"></span>
+
+                <div>
+                    <strong>System Online</strong>
+                    <small>AI services active</small>
+                </div>
+
+            </div>
+
+            <div class="sidebar-footer">
+                <span>MineSense v2.4</span>
+                <span>● Secure</span>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="page-heading">
+
+                <div class="mobile-menu">
+                    ☰
+                </div>
+
+                <div>
+                    <h1 id="pageTitle">
+                        Operations Dashboard
+                    </h1>
+
+                    <p id="pageSubtitle">
+                        AI-powered monitoring & optimization
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="top-actions">
+
+                <div class="live-indicator">
+                    <span></span>
+                    LIVE
+                </div>
+
+                <div class="time-box">
+                    <span id="currentTime">
+                        00:00:00
+                    </span>
+                    <small>IST</small>
+                </div>
+
+                <div class="notification-button">
+                    🔔
+                    <span>4</span>
+                </div>
+
+                <div class="user">
+
+                    <div class="avatar">
+                        OP
+                    </div>
+
+                    <div class="user-info">
+                        <strong>Operator</strong>
+                        <small>Control Room</small>
+                    </div>
+
+                    <span class="user-arrow">⌄</span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================================================= -->
+        <!-- DASHBOARD -->
+        <!-- ================================================= -->
+
+        <section id="dashboard" class="page active-page">
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <span class="eyebrow">
+                        AI OPERATIONS CENTER
+                    </span>
+
+                    <h2>
+                        Smarter Material Handling.
+                        <span>Lower Downtime.</span>
+                    </h2>
+
+                    <p>
+                        Monitor conveyors, crushers, material flow
+                        and trucks in real time using AI-powered
+                        predictive insights.
+                    </p>
+
+                    <div class="hero-meta">
+
+                        <div>
+                            <span class="meta-dot green"></span>
+                            All systems operational
+                        </div>
+
+                        <div>
+                            Last update: <strong>12 sec ago</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-ai">
+
+                    <div class="ai-ring">
+
+                        <div class="ai-circle">
+                            AI
+                        </div>
+
+                    </div>
+
+                    <span>AI CONFIDENCE</span>
+
+                    <strong>94.7%</strong>
+
+                    <small>High confidence</small>
+
+                </div>
+
+            </div>
+
+
+            <!-- KPI CARDS -->
+
+            <div class="kpi-grid">
+
+                <div class="kpi-card">
+
+                    <div class="kpi-header">
+                        <span>Material Throughput</span>
+
+                        <div class="kpi-icon green">
+                            ↗
+                        </div>
+                    </div>
+
+                    <h3>
+                        1,284
+                        <small>TPH</small>
+                    </h3>
+
+                    <div class="kpi-footer positive">
+                        ↑ 8.4%
+                        <span>vs yesterday</span>
+                    </div>
+
+                </div>
+
+
+                <div class="kpi-card">
+
+                    <div class="kpi-header">
+                        <span>Equipment Health</span>
+
+                        <div class="kpi-icon blue">
+                            ⚙
+                        </div>
+                    </div>
+
+                    <h3>
+                        92<span>%</span>
+                    </h3>
+
+                    <div class="kpi-footer positive">
+                        ↑ 3.2%
+                        <span>this week</span>
+                    </div>
+
+                </div>
+
+
+                <div class="kpi-card">
+
+                    <div class="kpi-header">
+                        <span>Truck Utilization</span>
+
+                        <div class="kpi-icon purple">
+                            ▣
+                        </div>
+                    </div>
+
+                    <h3>
+                        87<span>%</span>
+                    </h3>
+
+                    <div class="kpi-footer positive">
+                        ↑ 5.7%
+                        <span>today</span>
+                    </div>
+
+                </div>
+
+
+                <div class="kpi-card warning-card">
+
+                    <div class="kpi-header">
+                        <span>Active Alerts</span>
+
+                        <div class="kpi-icon orange">
+                            ⚠
+                        </div>
+                    </div>
+
+                    <h3>
+                        04
+                    </h3>
+
+                    <div class="kpi-footer negative">
+                        2
+                        <span>require attention</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHART + AI -->
+
+            <div class="content-grid">
+
+                <div class="panel chart-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>Material Flow</h3>
+                            <p>Real-time throughput monitoring</p>
+                        </div>
+
+                        <select>
+                            <option>Last 24 Hours</option>
+                            <option>Last 7 Days</option>
+                        </select>
+
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="flowChart"></canvas>
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>AI Insights</h3>
+                            <p>Machine learning recommendations</p>
+                        </div>
+
+                        <span class="ai-badge">
+                            ✦ AI
+                        </span>
+
+                    </div>
+
+
+                    <div class="insight">
+
+                        <div class="insight-icon red">
+                            !
+                        </div>
+
+                        <div class="insight-content">
+
+                            <strong>Conveyor C-04</strong>
+
+                            <p>
+                                Abnormal vibration detected.
+                                Failure probability <b>78%</b>.
+                            </p>
+
+                            <span class="recommendation">
+                                Inspect bearing
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="insight">
+
+                        <div class="insight-icon yellow">
+                            ↗
+                        </div>
+
+                        <div class="insight-content">
+
+                            <strong>Truck Queue</strong>
+
+                            <p>
+                                8 trucks waiting at Loading Point B.
+                            </p>
+
+                            <button
+                                class="recommendation clickable"
+                                onclick="openDispatchFromAI()"
+                            >
+                                Redirect trucks →
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="insight">
+
+                        <div class="insight-icon green">
+                            ✓
+                        </div>
+
+                        <div class="insight-content">
+
+                            <strong>Energy Optimization</strong>
+
+                            <p>
+                                Conveyor C-02 operating below optimal load.
+                            </p>
+
+                            <span class="recommendation">
+                                Potential saving: 6.8%
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EQUIPMENT + TRUCK SUMMARY -->
+
+            <div class="content-grid">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>Equipment Status</h3>
+                            <p>Live machine condition</p>
+                        </div>
+
+                        <button
+                            class="text-button"
+                            onclick="showPage('equipment')"
+                        >
+                            View All →
+                        </button>
+
+                    </div>
+
+
+                    <div class="equipment-list">
+
+                        <div class="equipment">
+
+                            <div class="machine-icon">
+                                C
+                            </div>
+
+                            <div class="machine-info">
+                                <strong>Conveyor C-01</strong>
+                                <span>
+                                    <i class="status-dot green"></i>
+                                    Running • 82% Load
+                                </span>
+                            </div>
+
+                            <div class="health good">
+                                96%
+                            </div>
+
+                        </div>
+
+
+                        <div class="equipment">
+
+                            <div class="machine-icon warning-machine">
+                                C
+                            </div>
+
+                            <div class="machine-info">
+                                <strong>Conveyor C-04</strong>
+                                <span>
+                                    <i class="status-dot orange"></i>
+                                    Warning • High Vibration
+                                </span>
+                            </div>
+
+                            <div class="health warning">
+                                68%
+                            </div>
+
+                        </div>
+
+
+                        <div class="equipment">
+
+                            <div class="machine-icon">
+                                CR
+                            </div>
+
+                            <div class="machine-info">
+                                <strong>Crusher CR-02</strong>
+                                <span>
+                                    <i class="status-dot green"></i>
+                                    Running • 76% Load
+                                </span>
+                            </div>
+
+                            <div class="health good">
+                                91%
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TRUCK SUMMARY -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>Truck Management</h3>
+                            <p>Live fleet overview</p>
+                        </div>
+
+                        <button
+                            class="text-button"
+                            onclick="showPage('trucks')"
+                        >
+                            Manage →
+                        </button>
+
+                    </div>
+
+
+                    <div class="truck-summary">
+
+                        <div>
+                            <strong>42</strong>
+                            <span>Total Trucks</span>
+                        </div>
+
+                        <div>
+                            <strong class="green-text">31</strong>
+                            <span>Moving</span>
+                        </div>
+
+                        <div>
+                            <strong class="orange-text">8</strong>
+                            <span>Waiting</span>
+                        </div>
+
+                        <div>
+                            <strong>3</strong>
+                            <span>Maintenance</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="queue">
+
+                        <div class="queue-header">
+
+                            <span>
+                                Average Turnaround
+                            </span>
+
+                            <strong>
+                                34 min
+                            </strong>
+
+                        </div>
+
+                        <div class="progress">
+                            <div style="width: 82%"></div>
+                        </div>
+
+                        <small>
+                            Target: 30 min
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- EQUIPMENT -->
+        <!-- ================================================= -->
+
+        <section id="equipment" class="page">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-kicker">
+                        ASSET MONITORING
+                    </span>
+
+                    <h2>Equipment Monitoring</h2>
+
+                    <p>
+                        AI-based predictive equipment health monitoring
+                    </p>
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="runAIAnalysis()"
+                >
+                    ✦ Run AI Analysis
+                </button>
+
+            </div>
+
+
+            <div class="equipment-grid">
+
+                <div class="machine-card">
+
+                    <div class="machine-head">
+
+                        <span class="machine-id">
+                            C-01
+                        </span>
+
+                        <span class="status running">
+                            ● Running
+                        </span>
+
+                    </div>
+
+                    <h3>Conveyor Belt</h3>
+
+                    <div class="machine-metric">
+                        <span>Health</span>
+                        <strong>96%</strong>
+                    </div>
+
+                    <div class="meter">
+                        <div style="width:96%"></div>
+                    </div>
+
+                    <div class="machine-data">
+
+                        <span>
+                            Speed
+                            <b>3.8 m/s</b>
+                        </span>
+
+                        <span>
+                            Load
+                            <b>82%</b>
+                        </span>
+
+                        <span>
+                            Temp
+                            <b>61°C</b>
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="machine-card danger-border">
+
+                    <div class="machine-head">
+
+                        <span class="machine-id">
+                            C-04
+                        </span>
+
+                        <span class="status warning">
+                            ● Warning
+                        </span>
+
+                    </div>
+
+                    <h3>Conveyor Belt</h3>
+
+                    <div class="machine-metric">
+                        <span>Health</span>
+                        <strong>68%</strong>
+                    </div>
+
+                    <div class="meter orange-meter">
+                        <div style="width:68%"></div>
+                    </div>
+
+                    <div class="machine-data">
+
+                        <span>
+                            Speed
+                            <b>3.4 m/s</b>
+                        </span>
+
+                        <span>
+                            Load
+                            <b>91%</b>
+                        </span>
+
+                        <span>
+                            Temp
+                            <b>74°C</b>
+                        </span>
+
+                    </div>
+
+                    <div class="prediction">
+                        ⚠ Failure probability:
+                        <strong>78%</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="machine-card">
+
+                    <div class="machine-head">
+
+                        <span class="machine-id">
+                            CR-02
+                        </span>
+
+                        <span class="status running">
+                            ● Running
+                        </span>
+
+                    </div>
+
+                    <h3>Primary Crusher</h3>
+
+                    <div class="machine-metric">
+                        <span>Health</span>
+                        <strong>91%</strong>
+                    </div>
+
+                    <div class="meter">
+                        <div style="width:91%"></div>
+                    </div>
+
+                    <div class="machine-data">
+
+                        <span>
+                            Load
+                            <b>76%</b>
+                        </span>
+
+                        <span>
+                            Temp
+                            <b>58°C</b>
+                        </span>
+
+                        <span>
+                            RPM
+                            <b>840</b>
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="machine-card">
+
+                    <div class="machine-head">
+
+                        <span class="machine-id">
+                            F-03
+                        </span>
+
+                        <span class="status running">
+                            ● Running
+                        </span>
+
+                    </div>
+
+                    <h3>Feeder</h3>
+
+                    <div class="machine-metric">
+                        <span>Health</span>
+                        <strong>94%</strong>
+                    </div>
+
+                    <div class="meter">
+                        <div style="width:94%"></div>
+                    </div>
+
+                    <div class="machine-data">
+
+                        <span>
+                            Load
+                            <b>72%</b>
+                        </span>
+
+                        <span>
+                            Flow
+                            <b>412 TPH</b>
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- TRUCK MANAGEMENT -->
+        <!-- ================================================= -->
+
+        <section id="trucks" class="page">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-kicker">
+                        FLEET OPERATIONS
+                    </span>
+
+                    <h2>Truck Management</h2>
+
+                    <p>
+                        AI-powered fleet and material transportation
+                    </p>
+
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="optimizeFleet()"
+                >
+                    ✦ Optimize Fleet
+                </button>
+
+            </div>
+
+
+            <!-- TRUCK KPI -->
+
+            <div class="truck-kpis">
+
+                <div class="mini-card">
+                    <span>Total Fleet</span>
+                    <strong>42</strong>
+                    <small>registered trucks</small>
+                </div>
+
+                <div class="mini-card">
+                    <span>Active</span>
+                    <strong class="green-text">31</strong>
+                    <small>currently moving</small>
+                </div>
+
+                <div class="mini-card waiting-kpi">
+                    <span>Waiting</span>
+                    <strong class="orange-text" id="waitingCount">
+                        8
+                    </strong>
+                    <small>need dispatch attention</small>
+                </div>
+
+                <div class="mini-card">
+                    <span>Avg. Turnaround</span>
+                    <strong>34 min</strong>
+                    <small>target 30 min</small>
+                </div>
+
+            </div>
+
+
+            <!-- WAITING TRUCK ALERT -->
+
+            <div class="dispatch-banner">
+
+                <div class="dispatch-banner-icon">
+                    🚚
+                </div>
+
+                <div class="dispatch-banner-content">
+
+                    <strong>
+                        Waiting trucks require attention
+                    </strong>
+
+                    <p>
+                        8 trucks are currently waiting at Loading Point B.
+                        Available trucks can be redirected to locations
+                        where additional capacity is required.
+                    </p>
+
+                </div>
+
+                <button
+                    class="dispatch-banner-btn"
+                    onclick="openDispatchPanel()"
+                >
+                    Dispatch Waiting Truck
+                </button>
+
+            </div>
+
+
+            <!-- FLEET TABLE -->
+
+            <div class="panel truck-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h3>Fleet Status</h3>
+                        <p>
+                            Real-time truck monitoring
+                        </p>
+                    </div>
+
+                    <div class="table-actions">
+
+                        <div class="table-search">
+                            <span>⌕</span>
+
+                            <input
+                                type="text"
+                                id="truckSearch"
+                                placeholder="Search truck..."
+                                onkeyup="searchTruck()"
+                            >
+
+                        </div>
+
+                        <button
+                            class="filter-btn"
+                            onclick="filterWaitingTrucks()"
+                        >
+                            ⚑ Waiting
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table id="truckTable">
+
+                        <thead>
+
+                        <tr>
+                            <th>Truck ID</th>
+                            <th>Driver</th>
+                            <th>Location</th>
+                            <th>Load</th>
+                            <th>Status</th>
+                            <th>Turnaround</th>
+                            <th>Operator Action</th>
+                        </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                        <tr data-status="loading">
+
+                            <td>
+                                <strong>TR-1024</strong>
+                            </td>
+
+                            <td>R. Kumar</td>
+
+                            <td>
+                                <span class="location">
+                                    ● Loading Point A
+                                </span>
+                            </td>
+
+                            <td>32 T</td>
+
+                            <td>
+                                <span class="table-status green-status">
+                                    Loading
+                                </span>
+                            </td>
+
+                            <td>18 min</td>
+
+                            <td>
+                                <span class="no-action">
+                                    —
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr data-status="moving">
+
+                            <td>
+                                <strong>TR-1027</strong>
+                            </td>
+
+                            <td>A. Singh</td>
+
+                            <td>
+                                <span class="location">
+                                    ● Crusher Zone
+                                </span>
+                            </td>
+
+                            <td>28 T</td>
+
+                            <td>
+                                <span class="table-status blue-status">
+                                    Moving
+                                </span>
+                            </td>
+
+                            <td>27 min</td>
+
+                            <td>
+                                <span class="no-action">
+                                    —
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <!-- WAITING TRUCK -->
+
+                        <tr
+                            data-status="waiting"
+                            class="waiting-row"
+                        >
+
+                            <td>
+                                <strong>TR-1031</strong>
+                            </td>
+
+                            <td>S. Das</td>
+
+                            <td>
+                                <span class="location waiting-location">
+                                    ● Queue Point B
+                                </span>
+                            </td>
+
+                            <td>0 T</td>
+
+                            <td>
+                                <span class="table-status orange-status">
+                                    Waiting
+                                </span>
+                            </td>
+
+                            <td>
+                                <strong class="wait-time">
+                                    46 min
+                                </strong>
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="send-truck-btn"
+                                    onclick="openDispatchPanel('TR-1031')"
+                                >
+                                    <span>➤</span>
+                                    Send Truck
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr data-status="moving">
+
+                            <td>
+                                <strong>TR-1038</strong>
+                            </td>
+
+                            <td>P. Sharma</td>
+
+                            <td>
+                                <span class="location">
+                                    ● Stockyard
+                                </span>
+                            </td>
+
+                            <td>31 T</td>
+
+                            <td>
+                                <span class="table-status blue-status">
+                                    Moving
+                                </span>
+                            </td>
+
+                            <td>31 min</td>
+
+                            <td>
+                                <span class="no-action">
+                                    —
+                                </span>
+                            </td>
+
+                        </tr>
+
+
+                        <tr data-status="loading">
+
+                            <td>
+                                <strong>TR-1042</strong>
+                            </td>
+
+                            <td>M. Yadav</td>
+
+                            <td>
+                                <span class="location">
+                                    ● Loading Point C
+                                </span>
+                            </td>
+
+                            <td>30 T</td>
+
+                            <td>
+                                <span class="table-status green-status">
+                                    Loading
+                                </span>
+                            </td>
+
+                            <td>21 min</td>
+
+                            <td>
+                                <span class="no-action">
+                                    —
+                                </span>
+                            </td>
+
+                        </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI RECOMMENDATION + EFFICIENCY -->
+
+            <div class="content-grid">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>AI Fleet Recommendation</h3>
+                            <p>Optimization engine</p>
+                        </div>
+
+                        <span class="ai-badge">
+                            ✦ AI
+                        </span>
+
+                    </div>
+
+
+                    <div class="big-recommendation">
+
+                        <div class="recommendation-icon">
+                            ✦
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Reduce Queue at Point B
+                            </h3>
+
+                            <p>
+                                AI predicts 5 additional trucks
+                                will reach Point B within the next
+                                20 minutes.
+                            </p>
+
+                            <strong>
+                                Redirect 3 trucks to Loading Point C.
+                            </strong>
+
+                            <div class="recommendation-actions">
+
+                                <button
+                                    class="primary-btn small"
+                                    onclick="openDispatchPanel()"
+                                >
+                                    Execute Recommendation
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>Fleet Efficiency</h3>
+                            <p>Today's performance</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="efficiency">
+
+                        <div class="eff-number">
+                            <strong>87%</strong>
+                            <span>Utilization</span>
+                        </div>
+
+                        <div class="eff-number">
+                            <strong>34m</strong>
+                            <span>Avg. Cycle</span>
+                        </div>
+
+                        <div class="eff-number">
+                            <strong>6.8%</strong>
+                            <span>Fuel Saving</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- ALERTS -->
+        <!-- ================================================= -->
+
+        <section id="alerts" class="page">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-kicker">
+                        INTELLIGENCE
+                    </span>
+
+                    <h2>AI Alerts</h2>
+
+                    <p>
+                        Predictive alerts and recommended actions
+                    </p>
+                </div>
+
+                <button
+                    class="secondary-btn"
+                    onclick="clearAlerts()"
+                >
+                    Clear Resolved
+                </button>
+
+            </div>
+
+
+            <div class="alerts-grid">
+
+                <div class="alert-card critical">
+
+                    <div class="alert-icon">
+                        !
+                    </div>
+
+                    <div>
+                        <span class="alert-level">
+                            HIGH PRIORITY
+                        </span>
+
+                        <h3>
+                            Conveyor C-04 vibration anomaly
+                        </h3>
+
+                        <p>
+                            Failure probability has increased
+                            to 78%. Inspect bearing assembly.
+                        </p>
+
+                        <button class="alert-action">
+                            Inspect Equipment →
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <div class="alert-card warning-alert">
+
+                    <div class="alert-icon">
+                        ↗
+                    </div>
+
+                    <div>
+                        <span class="alert-level">
+                            OPTIMIZATION
+                        </span>
+
+                        <h3>
+                            Truck queue detected
+                        </h3>
+
+                        <p>
+                            8 trucks are waiting at Loading Point B.
+                        </p>
+
+                        <button
+                            class="alert-action"
+                            onclick="openDispatchPanel()"
+                        >
+                            Dispatch Trucks →
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- ANALYTICS -->
+        <!-- ================================================= -->
+
+        <section id="analytics" class="page">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-kicker">
+                        PERFORMANCE
+                    </span>
+
+                    <h2>Analytics</h2>
+
+                    <p>
+                        Operational performance and historical insights
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="analytics-grid">
+
+                <div class="analytics-card">
+                    <span>Material Throughput</span>
+                    <strong>1,284 TPH</strong>
+                    <small class="positive">↑ 8.4%</small>
+                </div>
+
+                <div class="analytics-card">
+                    <span>Fleet Utilization</span>
+                    <strong>87%</strong>
+                    <small class="positive">↑ 5.7%</small>
+                </div>
+
+                <div class="analytics-card">
+                    <span>Fuel Saving</span>
+                    <strong>6.8%</strong>
+                    <small class="positive">AI optimized</small>
+                </div>
+
+                <div class="analytics-card">
+                    <span>Average Cycle</span>
+                    <strong>34 min</strong>
+                    <small>Target: 30 min</small>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- DISPATCH MODAL -->
+<!-- ================================================= -->
+
+<div
+    id="dispatchModal"
+    class="modal-overlay"
+    onclick="closeDispatchOutside(event)"
+>
+
+    <div class="dispatch-modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="modal-kicker">
+                    OPERATOR ACTION
+                </span>
+
+                <h2>
+                    Dispatch Waiting Truck
+                </h2>
+
+                <p>
+                    Send an instruction to a waiting truck
+                    to move to a required location.
+                </p>
+
+            </div>
+
+            <button
+                class="modal-close"
+                onclick="closeDispatchPanel()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="selected-truck">
+
+            <div class="truck-avatar">
+                🚚
+            </div>
+
+            <div>
+
+                <span>SELECTED TRUCK</span>
+
+                <strong id="selectedTruckId">
+                    TR-1031
+                </strong>
+
+                <small>
+                    Driver: S. Das
+                </small>
+
+            </div>
+
+            <div class="selected-status">
+                <span></span>
+                Waiting
+            </div>
+
+        </div>
+
+
+        <div class="dispatch-route">
+
+            <div class="route-point">
+
+                <span class="route-dot orange"></span>
+
+                <div>
+                    <label>Current Location</label>
+                    <strong id="currentTruckLocation">
+                        Queue Point B
+                    </strong>
+                </div>
+
+            </div>
+
+            <div class="route-line"></div>
+
+            <div class="route-point">
+
+                <span class="route-dot green"></span>
+
+                <div>
+
+                    <label>Send To</label>
+
+                    <select id="destinationSelect">
+
+                        <option value="">
+                            Select required location
+                        </option>
+
+                        <option value="Loading Point C">
+                            Loading Point C
+                        </option>
+
+                        <option value="Loading Point A">
+                            Loading Point A
+                        </option>
+
+                        <option value="Stockyard">
+                            Stockyard
+                        </option>
+
+                        <option value="Crusher Zone">
+                            Crusher Zone
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="message-section">
+
+            <label>
+                Message to driver
+            </label>
+
+            <textarea
+                id="dispatchMessage"
+                rows="4"
+                placeholder="Enter instruction for the driver..."
+            >Proceed to Loading Point C. Avoid Queue Point B and report when you arrive.</textarea>
+
+            <div class="message-hint">
+                <span>●</span>
+                Message will be sent to the truck operator.
+            </div>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                class="secondary-btn"
+                onclick="closeDispatchPanel()"
+            >
+                Cancel
+            </button>
+
+            <button
+                class="primary-btn"
+                onclick="sendTruckInstruction()"
+            >
+                ➤ Send Instruction
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div id="toast" class="toast">
+
+    <span class="toast-icon">
+        ✓
+    </span>
+
+    <div>
+        <strong id="toastTitle">
+            Instruction Sent
+        </strong>
+
+        <p id="toastMessage">
+            Truck dispatch request sent successfully.
+        </p>
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
